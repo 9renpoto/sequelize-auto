@@ -131,7 +131,8 @@ export class AutoWriter {
     // import statements
     tables.forEach(t => {
       const fileName = recase(this.options.caseFile, t, this.options.singularize);
-      const modelName = makeTableName(this.options.caseModel, t, this.options.singularize, this.options.lang);
+      // const modelName = makeTableName(this.options.caseModel, t, this.options.singularize, this.options.lang);
+      const modelName = makeTableName(this.options.caseModel, t, true, this.options.lang);
       modelNames.push(modelName);
       str += `import { ${modelName} as _${modelName} } from "./${fileName}";\n`;
       str += `import type { ${modelName}Attributes, ${modelName}CreationAttributes } from "./${fileName}";\n`;
